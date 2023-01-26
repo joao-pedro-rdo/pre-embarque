@@ -1,0 +1,43 @@
+CLIENTE(
+	*cnpj 
+	nome_cliente
+	porte do cliente 
+	natureza_do_cliente
+    setor bndes 
+	subsetor bndes
+	arera operacional	
+	*cod_municicpio(FK)
+)
+
+MUNICIPIO(
+	*cod_municipio
+	municipio 
+	uf
+)
+
+Financiamento(
+	valor_desembolsado
+	valor_de_operação
+	fontes_de_recurso_desembolsados
+	modalidade de apoio
+	forma de apoio
+	instrumento financeceiro
+	data_de_contratação 
+	situacao_da_operacao 
+	*cnpj_cliente(FK)
+)
+
+CNAE(
+	*cod_setor_cnae 
+	setor cnae
+	subsetor cnae agrupado
+	subsetor cnae nome	
+)
+
+FINANCEIRA(
+	*cnpj_do_agente_financeiro
+	inovação
+	instituicao_financeira_credenciada
+)
+
+

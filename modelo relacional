@@ -1,21 +1,29 @@
-CLIENTE(
-	*cnpj 
-	nome_cliente
-	porte do cliente 
-	natureza_do_cliente
-    setor bndes 
-	subsetor bndes
-	arera operacional	
-	*cod_municicpio(FK)
+CNAE(
+	*cod_setor_cnae 
+	setor_cnae
+	subsetor_cnae_agrupado
+	subsetor_cnae_nome	
 )
 
 MUNICIPIO(
 	*cod_municipio
-	municipio 
+	nome_municipio 
 	uf
 )
 
+CLIENTE(
+	*cnpj 
+	nome_cliente 
+	porte_cliente 
+	natureza_cliente 
+    setor_bndes 
+	subsetor_bndes 
+	area_operacional 
+	*cod_municicpio(FK)
+)
+
 Financiamento(
+	*cod_financiamento 
 	valor_desembolsado
 	valor_de_operação
 	fontes_de_recurso_desembolsados
@@ -27,14 +35,9 @@ Financiamento(
 	*cnpj_cliente(FK)
 )
 
-CNAE(
-	*cod_setor_cnae 
-	setor cnae
-	subsetor cnae agrupado
-	subsetor cnae nome	
-)
 
-FINANCEIRA(
+
+AGENTE_FINANCEIRO(
 	*cnpj_do_agente_financeiro
 	inovação
 	instituicao_financeira_credenciada

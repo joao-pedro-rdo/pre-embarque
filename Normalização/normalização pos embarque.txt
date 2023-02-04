@@ -1,0 +1,33 @@
+Exportador(
+	nome_exportador	
+	cnpj_do_exportador*	
+	porte_do_exportador		
+	uf	
+	area_operacional 
+	
+)
+Operação 1[pos embaque](
+	descricao_da_operacao	
+	pais_destino_das_exportacoes	
+	numero_da_operacao*
+	moeda_sigla	
+	fonte_de_recursos_desembolsos	
+	custo_financeiro
+	modalidade_de_apoio
+	forma_de_apoio	
+	mutuario	
+	categoria	
+	modalidade_operacional	(referente a contrato)
+	tipo_de_garantia
+	
+OperaçãoExportador(
+	numero_da_operacao*
+	data_da_contratacao* ;;
+	cnpj_do_exportador*	
+	situacao_da_operacao
+		
+
+)
+	
+	
+	

@@ -1,0 +1,23 @@
+CNAE:
+	a tabela cenae durante a normalização deveria ter sido uma especialição e generalização porem optamos por usar outra forma de resolver esse caso
+	com fazer uma tabela maior contendo todos os atributos pois o numero de atributos não eras muito grende sendo assim uma forma melhor de
+	implementar essa tabela 
+	
+MUNICIPIO: 
+	sera preciso fazer algumas adaptações para compreender o exportador tambem pois ele só tem UF
+	coloquei como atributo em comum de usuario para que nao precisa legar municipio nele sem necessidade
+	porem nao sei se uisso éa melhor opção
+
+NORMALIZAÇÃO DE PRE-EMBARQUE:
+	DATA_DE_CONTRATAÇÃO E SITUAÇÃO DA OPERAÇÃO: 
+		foram movidos para sima pois se criou uma relação N:N de produto(financiamento) com o usuario
+		entao esses atributos alem de serem comuns entre os dois tipos de embarque foram pra tabela intermediaria
+
+
+
+
+
+
+REFERENTE AO MODELO CONCEITUAL:
+	GENERALIZAÇÃO:
+		foi usada total compartilhada nos dois casos pois em abos poderia ocorrer de ser os dois 

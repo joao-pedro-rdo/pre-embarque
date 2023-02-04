@@ -1,3 +1,4 @@
+
 CNAE(
 	*cod_cnae 
 	setor cnae
@@ -6,7 +7,6 @@ CNAE(
 	
 
 )
-
 CLIENTE(
 	*cnpj 
 	nome_cliente
@@ -20,6 +20,7 @@ CLIENTE(
 	*cod_cnae 
 
 )
+
 MUNICIPIO(
 	*cod_municipio
 	municipio 
@@ -27,27 +28,27 @@ MUNICIPIO(
 )
 
 Financiamento(
-	
+	cod_financiamento
 	valor_desembolsado
 	valor_de_operação
 	fontes_de_recurso_desembolsados
 	modalidade de apoio
-	forma de apoio
 	instrumento financeceiro
-
-	
-	*cnpj_cliente(FK)
-
 	data_de_contratação 
 	situacao_da_operacao 
+	
+	*cnpj_cliente(FK)
 )
 
 FINANCEIRA(
 	*cnpj_do_agente_financeiro
-
 	inovação
 	instituicao_financeira_credenciada
 
+)
+FINANCIAMENTO_FINANCEIRA(
+	cnpj_agente
+	cod_financiamento
 )
 
 

@@ -1,0 +1,74 @@
+USUARIO(
+	cnpj* 
+	nome
+	porte
+	arera operacional
+	UF
+
+	CLIENTE(
+		natureza
+		setor bndes 
+		subsetor bndes
+		*cod_municicpio
+		*cod_cnae
+	)
+
+	EXPORTADOR(
+		setor_subsetor_de_atividade	
+	)
+	
+CNAE(
+	*cod_cnae 
+	setor cnae
+	subsetor cnae agrupado
+	subsetor cnae nome	
+	
+
+)
+MUNICIPIO(
+	cod_municipio*
+	municipio 
+	uf
+)
+
+PRODUTO(
+	nuemero*
+	fonte de recursos desembolsados
+	foma de apoio
+	modalidade de apoio
+	categoria
+
+	PRE-EMBARQUE(
+		valor deoperação
+		intrumento financeiro
+	)
+	POS-EMBARQUE(
+		moeda sigla
+		custo financeiro
+		descrição
+		pais de destino
+		tipo de garantia
+	)
+
+)
+PRODUTO_USUARIO(
+	numero*
+	cnpj*
+	status
+	data de contratação
+)
+
+FINACEIRA(
+	cnpj*
+	inovação
+	intrumento financeira credenciada
+)
+
+PRODUTO_FINANCEIRA(
+	CNPJ_financeira*
+	numero*
+)
+
+
+
+

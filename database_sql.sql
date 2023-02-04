@@ -1,55 +1,88 @@
 CREATE TABLE municipio(
     cod_municipio INTEGER PRIMARY KEY,
-    nome_municipio VARCHAR(30),
-    uf VARCHAR(2)
+    nome_municipio VARCHAR(30)
+    --uf VARCHAR(2)
 );
 
 CREATE TABLE cnae(
-    cod_cnae INTEGER PRIMARY KEY, 
+    cod_cnae SERIAL PRIMARY KEY, 
 	setor_cnae VARCHAR(30),
+	cod_subsetor INTEGER,	
 	subsetor_cnae_agrupado VARCHAR(30),
 	subsetor_cnae_nome VARCHAR (30)
 );
 
-CREATE TABLE cliente(
-    cnpj_cliente NUMERIC(14) PRIMARY KEY,
-	nome_cliente VARCHAR(30),
-	porte_cliente VARCHAR(30),
-	natureza_cliente VARCHAR(30),
-    setor_bndes VARCHAR(30),
-	subsetor_bndes VARCHAR(30),
+CREATE TABLE usuario(
+    cnpj NUMERIC(14) PRIMARY KEY,
+	nome VARCHAR(30),
+	porte VARCHAR(30),
 	area_operacional VARCHAR(30),
-	cod_municipio INTEGER,
-    cod_setor_cnae INTEGER,
+	cod_municipio INTEGER, -- vai ir em cliente ??
+    cod_setor_cnae INTEGER, -- vair ir em cliente ??
     FOREIGN KEY(cod_setor_cnae) references cnae,
     FOREIGN KEY(cod_municipio) references municipio 
 );
 
-CREATE TABLE financiamento(
-	cod_financiamento SERIAL PRIMARY KEY,
+CREATE TABLE cliente(
+	cnpj NUMERIC(14),
+	natureza_cliente VARCHAR(30),
+    setor_bndes VARCHAR(30),
+	subsetor_bndes VARCHAR(30),
+	FOREIGN KEY(cnpj) references usuario
+);
+CREATE TABLE exportador(
+	setor_atividade VARCHAR(30),
+	cnpj NUMERIC(14),
+	FOREIGN KEY(cnpj) references usuario
+);
+
+CREATE TABLE produto(
+	numero SERIAL PRIMARY KEY,
     valor_desembolsado MONEY,
-	valor_de_operacao MONEY,
 	fontes_de_recurso_desembolsados VARCHAR(30),
 	modalidade_de_apoio VARCHAR(30),
 	forma_apoio VARCHAR(30),
-	instrumento_financeceiro VARCHAR(30),
-	data_de_contratacao DATE,
-	situacao_da_operacao VARCHAR(20),
-    cnpj_cliente NUMERIC(14),
-	FOREIGN KEY (cnpj_cliente) references cliente
+	categoria VARCHAR(30)
 );
 
-CREATE TABLE agente_financeiro(
-    cnpj_do_agente_financeiro NUMERIC(14) PRIMARY KEY,
+CREATE TABLE pre(
+	numero SERIAL,
+	valor_de_operacao MONEY,
+	instrumento_financeceiro VARCHAR(30),
+	FOREIGN KEY (numero) references produto
+
+);
+
+CREATE TABLE pos(
+	numero SERIAL,
+	tipo_garantia VARCHAR(30),
+	descricao VARCHAR(100),
+	custo_financeiro NUMERIC(10),
+	pais_destino VARCHAR(20),
+	moeda_sigla VARCHAR(4),
+	FOREIGN KEY (numero) references produto
+
+);
+CREATE TABLE produto_usuario(
+	cnpj NUMERIC(14) ,
+	numero SERIAL,
+	data_de_contratacao DATE,
+	situacao_da_operacao VARCHAR(20),
+	FOREIGN KEY (cnpj) references usuario,
+	FOREIGN KEY (numero) references produto
+);
+
+CREATE TABLE financeira(
+    cnpj_financeira NUMERIC(14) PRIMARY KEY,
 	inovacao VARCHAR(30),
 	instituicao_financeira_credenciada VARCHAR(30)
 );
 
-CREATE TABLE AgenteFinanciamento(
-    cod_financiamento SERIAL,
-    cnpj_do_agente_financeiro NUMERIC(14),
-    FOREIGN KEY (cod_financiamento) references financiamento,
-    FOREIGN KEY (cnpj_do_agente_financeiro) references agente_financeiro
+CREATE TABLE produto_financiamento(
+    numero SERIAL,
+ 	cnpj_financeira NUMERIC(14),
+	FOREIGN KEY (numero) references produto,
+    FOREIGN KEY (cnpj_financeira) references financeira
 
 );
 

@@ -1,4 +1,3 @@
-
 CREATE TABLE cnae(
     cod_cnae SERIAL PRIMARY KEY, 
 	setor_cnae VARCHAR(30),
@@ -23,11 +22,9 @@ CREATE TABLE cliente(
 	subsetor_bndes VARCHAR(30),
     cod_municipio INTEGER, --mudei para a tabela cliente, pois usamos apenas aqui
     cod_setor_cnae INTEGER, --mudei para a tabela cliente, pois usamos apenas aqui
-	cod_municipio INTEGER,
-    nome_municipio VARCHAR(30)
+    nome_municipio VARCHAR(30),
     FOREIGN KEY(cnpj) references usuario,
-    FOREIGN KEY(cod_setor_cnae) references cnae,
-    FOREIGN KEY(cod_municipio) references municipio 
+    FOREIGN KEY(cod_setor_cnae) references cnae
 );
 
 CREATE TABLE exportador(--exportador nao teria q ter PK?
@@ -49,7 +46,7 @@ CREATE TABLE pre(--nao esta faltando inovacao?
     valor_desembolsado MONEY,--mudei para a tabela pre, pois nao aparece esse atributo em pos-embarque
     valor_de_operacao MONEY,
 	instrumento_financeceiro VARCHAR(30),
-	FOREIGN KEY (numero) references produto
+	FOREIGN KEY (numero) references operacao
 
 );
 
@@ -63,16 +60,16 @@ CREATE TABLE pos(--esta faltando modalidade operacional e mutuario
 	categoria VARCHAR(30),--nao iria apenas em pos? coloquei em pos pois nao tem em pre-embarque
 	modalidade_operacional VARCHAR(20),--ADICIONEI
     mutuario VARCHAR(30),--ADICIONEI
-    FOREIGN KEY (numero) references produto
+    FOREIGN KEY (numero) references operacao
 );
 
-CREATE TABLE produto_usuario(
+CREATE TABLE operacao_usuario(
 	cnpj NUMERIC(14),
 	numero INTEGER, --mudei para integer pois com serial acho q ficaria errado
 	data_de_contratacao DATE,
 	situacao_da_operacao VARCHAR(20),
 	FOREIGN KEY (cnpj) references usuario,
-	FOREIGN KEY (numero) references produto,
+	FOREIGN KEY (numero) references operacao,
 	PRIMARY KEY (cnpj, numero)
 );
 
@@ -81,16 +78,10 @@ CREATE TABLE financeira(--FINANCEIRA EXISTE APENAS EM PRE-EMBARQUE//
 	instituicao_financeira_credenciada VARCHAR(30)
 );
 
-CREATE TABLE produto_financiamento(--no caso do pos embarque, nao utlizamos esta tabela?
+CREATE TABLE operacao_financiamento(--no caso do pos embarque, nao utlizamos esta tabela?
     numero INTEGER,  --mudei pois achava q serial estava errado
  	cnpj_financeira NUMERIC(14),
-	FOREIGN KEY (numero) references produto,
+	FOREIGN KEY (numero) references operacao,
     FOREIGN KEY (cnpj_financeira) references financeira,
 	PRIMARY KEY(numero, cnpj_financeira)
 );
-
-
-
-
-
-

@@ -1,46 +1,67 @@
 CNAE(
-	*cod_setor_cnae 
-	setor_cnae
+    cod_setor_cnae
 	subsetor_cnae_agrupado
-	subsetor_cnae_nome	
+	cod_subsetor 
+	subsetor_cnae_
+	subsetor_cnae_nome 
+)
+USUARIO(
+    cnpj 
+	nome 
+	porte
+	area_operacional
+	uf 
+)
+CLEINTE(
+	cnpj 
+	natureza_cliente
+    setor_bnde 
+	subsetor_bnde 
+    cod_municipiO
+    cod_setor_cnae
+    nome_municipi 
 )
 
-MUNICIPIO(
-	*cod_municipio
-	nome_municipio 
-	uf
+EXPORTADOR(
+	setor_atividade 
+	cnpj 
 )
 
-CLIENTE(
-	*cnpj 
-	nome_cliente 
-	porte_cliente 
-	natureza_cliente 
-    setor_bndes 
-	subsetor_bndes 
-	area_operacional 
-	*cod_municicpio(FK)
+OPERAÇÃO(
+	numero 
+	fontes_de_recurso_desembolsados 
+	modalidade_de_apoio 
+	forma_apoio 
 )
-
-Financiamento(
-	*cod_financiamento 
-	valor_desembolsado
-	valor_de_operação
-	fontes_de_recurso_desembolsados
-	modalidade de apoio
-	forma de apoio
-	instrumento financeceiro
-	data_de_contratação 
+PRE(
+	numero 
+	inovacao 
+    valor_desembolsado 
+    valor_de_operacao 
+	instrumento_financeceiro 
+)
+POS(
+	numero
+	tipo_garantia 
+	descricao 
+	custo_financeiro 
+	pais_destino 
+	moeda_sigla 
+	categoria 
+	modalidade_operacional 
+    mutuario 
+)
+OPERAÇÃO_USUARIO(
+	cnpj 
+	numero
+	data_de_contratacao 
 	situacao_da_operacao 
-	*cnpj_cliente(FK)
 )
-
-
-
-AGENTE_FINANCEIRO(
-	*cnpj_do_agente_financeiro
-	inovação
-	instituicao_financeira_credenciada
+FINANCEIRA(
+    cnpj_financeira 
+	instituicao_financeira_credenciada 
 )
-
-
+ OPERAÇÃO_FINANCEIRA(
+    numero INTEGER
+ 	cnpj_financeira 
+)

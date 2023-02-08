@@ -8,6 +8,9 @@ MUNICIPIO:
 	coloquei como atributo em comum de usuario para que nao precisa legar municipio nele sem necessidade
 	porem nao sei se uisso éa melhor opção
 
+	devido a o numero baixo de atributos onde seria uma tabela de municipio, foi passado cod_municipio e municipio para
+	tabela cleinte onde esses atributos eram excluivos 
+
 NORMALIZAÇÃO DE PRE-EMBARQUE:
 	DATA_DE_CONTRATAÇÃO E SITUAÇÃO DA OPERAÇÃO: 
 		foram movidos para sima pois se criou uma relação N:N de produto(financiamento) com o usuario

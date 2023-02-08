@@ -64,7 +64,7 @@ CREATE TABLE pos(
 
 );
 CREATE TABLE produto_usuario(
-	cnpj NUMERIC(14) ,
+	cnpj NUMERIC(14) PRIMARY KEY,
 	numero SERIAL,
 	data_de_contratacao DATE,
 	situacao_da_operacao VARCHAR(20),
@@ -74,7 +74,6 @@ CREATE TABLE produto_usuario(
 
 CREATE TABLE financeira(
     cnpj_financeira NUMERIC(14) PRIMARY KEY,
-	inovacao VARCHAR(30),
 	instituicao_financeira_credenciada VARCHAR(30)
 );
 

@@ -73,7 +73,7 @@ CREATE TABLE operacao_usuario(
 	situacao_da_operacao VARCHAR(20),
 	FOREIGN KEY (cnpj) references usuario,
 	FOREIGN KEY (numero) references operacao,
-	PRIMARY KEY (cnpj, numero)
+	PRIMARY KEY (cnpj, numero, data_de_contratacao)
 );
 
 CREATE TABLE financeira( 

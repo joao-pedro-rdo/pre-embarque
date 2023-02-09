@@ -10,7 +10,7 @@ CREATE VIEW vw_total_operacoes_clientes AS--valor total de operacoes por cliente
 CREATE VIEW vw_info_operacao_usuario AS --consulta das informacoes da operacao e do cliente, ocultando cnpj do cliente e valores da operacao
 	SELECT nome, porte, area_operacional, operacao.numero AS numero_da_operacao, 
 		data_de_contratacao, situacao_da_operacao, fontes_de_recurso_desembolsados,
-		modalidade_de_apoio, forma_apoio, inovacao, instrumento_financeceiro FROM usuario
+		modalidade_de_apoio, forma_apoio, inovacao, instrumento_financeiro FROM usuario
 		INNER JOIN operacao_usuario
 			ON usuario.cnpj = operacao_usuario.cnpj
 		INNER JOIN operacao
@@ -42,3 +42,4 @@ CREATE VIEW vw_exportacoes_argentina AS --consulta nome cliente e numero da oper
 CREATE VIEW vw_usuario_porte_grande AS --consulta apenas os usuarios de porte grande
 	SELECT nome, cnpj, porte FROM usuario
 		WHERE porte = 'GRANDE';
+

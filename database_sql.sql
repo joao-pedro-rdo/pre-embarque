@@ -1,3 +1,8 @@
+CREATE TABLE municipio(
+	cod_municipio INTEGER PRIMARY KEY, 
+	nome_municipio VARCHAR(30)
+)
+
 CREATE TABLE cnae(
     cod_cnae SERIAL PRIMARY KEY,
 	setor_cnae VARCHAR(30),
@@ -21,9 +26,9 @@ CREATE TABLE cliente(
 	subsetor_bndes VARCHAR(30),
     cod_municipio INTEGER, 
     cod_setor_cnae INTEGER, 
-    nome_municipio VARCHAR(30),
     FOREIGN KEY(cnpj) references usuario,
-    FOREIGN KEY(cod_setor_cnae) references cnae
+    FOREIGN KEY(cod_setor_cnae) references cnae,
+	FOREIGN KEY(cod_municipio) references municipio
 );
 
 CREATE TABLE exportador(

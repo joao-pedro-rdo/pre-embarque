@@ -11,9 +11,3 @@
 ## Contextualização do Problema
 - Se você é um empreendedor e precisa de um financiamento a longo prazo para realizar seus planos empresariais, o (BNDES) o ajudará. Como neste caso estudado é sobre uma empresa que realiza exportações e importações, segundo a NAC (2021) o financiamento para exportação é uma linha de crédito que tem como objetivo oferecer ao empreendedor o apoio financeiro necessário para realizar todas as etapas que envolvem o processo de exportação. O funcionamento dessa linha de crédito é similar às linhas destinadas ao mercado interno, podendo envolver as redes pública e privada. As diferenças estão nos detalhes de cada tipo de operação. No financiamento para exportação, as linhas de crédito são divididas em dois grupos: pré-embarque e pós-embarque.
 
-## Projeto Lógico
-
-## Projeto Conceitual
-
-## Projeto Físico
-

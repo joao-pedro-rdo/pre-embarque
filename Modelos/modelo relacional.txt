@@ -5,6 +5,11 @@ CNAE(
 	subsetor_cnae_
 	subsetor_cnae_nome 
 )
+MUNICIPIO(
+	nome_municipio
+	cod_municipiO
+
+)
 USUARIO(
     cnpj 
 	nome 
@@ -15,12 +20,13 @@ USUARIO(
 CLEINTE(
 	cnpj 
 	natureza_cliente
-    setor_bnde 
+    	setor_bnde 
 	subsetor_bnde 
-    cod_municipiO
-    cod_setor_cnae
-    nome_municipi 
+   	 cod_setor_cnae
+	cod_municipio
+   
 )
+
 
 EXPORTADOR(
 	setor_atividade 

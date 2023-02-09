@@ -1,7 +1,7 @@
 CREATE TABLE municipio(
 	cod_municipio INTEGER PRIMARY KEY, 
 	nome_municipio VARCHAR(30)
-)
+);
 
 CREATE TABLE cnae(
     cod_cnae SERIAL PRIMARY KEY,
